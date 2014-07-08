@@ -1,12 +1,12 @@
 all: zip
 
 zip-nogapps: rom
-	cd working && zip -r9 release-nogapps.zip * -x@../gapps-exclude.txt
-	mv working/release-nogapps.zip .
+	rm -f release-nogapps.zip
+	cd working && zip -r9 ../release-nogapps.zip * -x@../gapps-exclude.txt
 
 zip: rom
-	cd working && zip -r9 release.zip *
-	mv working/release.zip .
+	rm -f release.zip
+	cd working && zip -r9 ../release.zip *
 
 rom:
 	make -C boot
